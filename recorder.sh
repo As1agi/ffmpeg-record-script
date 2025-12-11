@@ -1,18 +1,21 @@
 #!/bin/bash
 # Live FFmpeg recording with essential stats in terminal
 
-OUTDIR=~/Videos #outpud dir for the recorded videos
+OUTDIR=~/Videos # output dir for the recorded videos
 mkdir -p "$OUTDIR"
 TIMESTAMP=$(date +%Y-%m-%d_%H-%M-%S)
 VIDEO_INPUT=:0.0
-#audio input souce
+
+#audio input source
 #use - pactl list sources short to list audio input sources
 #you will see something like
 #
 #0	alsa_input.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp_6__source	module-alsa-card.c	s16le 2ch 44100Hz	RUNNING
 #1	alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp_6.analog-stereo.monitor	module-alsa-card.c	s16le 2ch 44100Hz	IDLE
 #choose the right audio input source and replace the source in the field below then run
-#AUDIO_INPUT= AUDIO_INPUT_SOURCE_HERE
+
+# --- FIX: set a default or placeholder audio input ---
+AUDIO_INPUT=alsa_input.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp_6__source
 
 OUTFILE="$OUTDIR/walkthrough_$TIMESTAMP.mkv"
 
